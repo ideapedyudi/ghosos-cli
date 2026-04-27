@@ -59,10 +59,10 @@ program
 
           switch (status) {
             case 'AVAILABLE':
-              statusStyled = chalk.green.bold('NOT FOUND');
+              statusStyled = chalk.red.bold('NOT FOUND');
               break;
             case 'TAKEN':
-              statusStyled = chalk.red.bold('FOUND');
+              statusStyled = chalk.green.bold('FOUND');
               break;
             default:
 
