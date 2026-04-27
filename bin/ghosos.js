@@ -59,12 +59,13 @@ program
 
           switch (status) {
             case 'AVAILABLE':
-              statusStyled = chalk.green.bold('TIDAK ADA');
+              statusStyled = chalk.green.bold('NOT FOUND');
               break;
             case 'TAKEN':
-              statusStyled = chalk.red.bold('ADA');
+              statusStyled = chalk.red.bold('FOUND');
               break;
             default:
+
               statusStyled = chalk.yellow(status);
           }
 
