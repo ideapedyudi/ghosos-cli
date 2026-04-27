@@ -42,14 +42,3 @@ ghosos-cli/
 ├── package.json
 └── README.md
 ```
-
-## 5. Status Proyek & Roadmap
-- [x] Setup CLI awal dengan Commander.js
-- [x] Pemindaian asinkron multi-platform
-- [x] Rotasi User-Agent (Ghost-Mode)
-- [x] UI Estetik dengan Chalk dan Ora
-- [x] Script Ignitor otomatis (`yarn ignite`)
-- [x] Unit testing dengan Mocha & Chai
-- [ ] Dukungan untuk 50+ platform
-- [ ] Fitur ekspor hasil ke JSON/CSV
-- [ ] Mode interaktif untuk pencarian banyak username

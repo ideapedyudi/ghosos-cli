@@ -4,6 +4,7 @@ import { Command } from 'commander';
 import ora from 'ora';
 import Table from 'cli-table3';
 import chalk from 'chalk';
+import CFonts from 'cfonts';
 import { platforms } from '../src/data/platforms.js';
 import { scanAll } from '../src/engine/scanner.js';
 import { logger } from '../src/utils/logger.js';
@@ -13,27 +14,42 @@ const program = new Command();
 program
   .name('ghosos')
   .description('Ghost-mode Username OSINT Investigation Tool')
-  .version('1.0.0')
+  .version('1.0.1')
   .argument('<username>', 'Username to investigate')
   .action(async (username) => {
-    logger.title(`GHOSOS-CLI: Investigating "${username}"`);
+    // 1. Display Fancy ASCII Title
+    CFonts.say('GHOSOS', {
+      font: 'block',
+      align: 'left',
+      colors: ['magenta', 'candy'],
+      background: 'transparent',
+      letterSpacing: 1,
+      lineHeight: 1,
+      space: true,
+      maxLength: '0',
+    });
+
+    logger.title(`INVESTIGATING TARGET: ${chalk.bold.underline(username)}`);
     
     const spinner = ora({
-      text: `Starting stealth search for ${chalk.magenta(username)}...`,
+      text: `Stealthily tracking ${chalk.magenta(username)} across the web...`,
       color: 'magenta'
     }).start();
 
     try {
       const results = await scanAll(platforms, username);
-      spinner.succeed(`Scan completed for ${chalk.bold(username)}`);
+      spinner.succeed(`Intelligence gathering completed for ${chalk.bold(username)}`);
 
       const table = new Table({
         head: [
-          chalk.cyan('Platform'), 
-          chalk.cyan('Status'), 
-          chalk.cyan('URL')
+          chalk.magenta.bold('PLATFORM'), 
+          chalk.magenta.bold('STATUS'), 
+          chalk.magenta.bold('SOURCE URL')
         ],
-        colWidths: [20, 15, 50]
+        style: {
+          head: [], // Disable default colors to use chalk
+          border: ['gray']
+        }
       });
 
       results.forEach((res) => {
@@ -43,24 +59,28 @@ program
 
           switch (status) {
             case 'AVAILABLE':
-              statusStyled = chalk.green.bold(status);
+              statusStyled = chalk.green.bold('TIDAK ADA');
               break;
             case 'TAKEN':
-              statusStyled = chalk.red.bold(status);
+              statusStyled = chalk.red.bold('ADA');
               break;
             default:
               statusStyled = chalk.yellow(status);
           }
 
-          table.push([platform, statusStyled, url]);
+          table.push([
+            chalk.white(platform), 
+            statusStyled, 
+            chalk.gray(url)
+          ]);
         }
       });
 
       console.log(table.toString());
-      logger.ghost('Investigation complete. Stay in the shadows.');
+      logger.ghost('Investigation complete. The ghost fades back into the shadows.');
 
     } catch (error) {
-      spinner.fail('A fatal error occurred during scanning.');
+      spinner.fail('Critical failure during intelligence gathering.');
       logger.error(error.message);
     }
   });
