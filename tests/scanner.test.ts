@@ -2,7 +2,10 @@ import { expect } from 'chai';
 import { checkUsername } from '../src/engine/scanner.js';
 import { Platform } from '../src/data/platforms.js';
 
-describe('Scanner Engine', () => {
+describe('Scanner Engine', function(this: Mocha.Suite) {
+
+  this.timeout(10000); // Set timeout 10 detik
+
   it('should return TAKEN for a known existing user (e.g., github)', async () => {
     const platform: Platform = {
       name: 'GitHub',
