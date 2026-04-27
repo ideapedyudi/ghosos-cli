@@ -14,6 +14,12 @@
   - `cli-table3`: For neat final result tables.
   - `user-agents`: For rotating browser identities (Ghost Mode).
 
+## 3. Development Workflow (AI-Integrated)
+- **Immediate Sync:** Every modification or feature addition must be immediately committed and pushed to GitHub using the `@mcp:github-mcp-server`.
+- **Atomic Commits:** Each push should represent a single logical change or feature.
+- **Auto-Ignition:** New setups must be verified using `yarn ignite` before being finalized.
+
+
 ## 3. Core Features (The "Ghost" Signature)
 - **Parallel Scanning:** Performs checks on 20+ platforms simultaneously using `Promise.allSettled`.
 - **Ghost-Identity:** Automatic `User-Agent` rotation on every request to avoid bot detection.
