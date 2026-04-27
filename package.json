@@ -1,0 +1,32 @@
+{
+  "name": "ghosos-cli",
+  "version": "1.0.0",
+  "description": "Investigation Tool (OSINT) for username availability with Ghost-mode identity rotation.",
+  "main": "bin/ghosos.js",
+  "type": "module",
+  "bin": {
+    "ghosos": "./bin/ghosos.js"
+  },
+  "scripts": {
+    "start": "node bin/ghosos.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "osint",
+    "username",
+    "checker",
+    "ghost",
+    "stealth",
+    "cli"
+  ],
+  "author": "Ideapedyudi",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.3",
+    "commander": "^11.1.0",
+    "ora": "^7.0.1",
+    "user-agents": "^1.1.0"
+  }
+}
