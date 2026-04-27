@@ -11,8 +11,9 @@
     "rootDir": ".",
     "allowJs": true,
     "resolveJsonModule": true,
-    "declaration": true
+    "declaration": true,
+    "types": ["mocha", "chai", "node"]
   },
-  "include": ["src/**/*", "bin/**/*"],
-  "exclude": ["node_modules", "dist", "tests"]
+  "include": ["src/**/*", "bin/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
