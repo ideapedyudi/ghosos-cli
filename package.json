@@ -2,13 +2,15 @@
   "name": "ghosos-cli",
   "version": "1.0.0",
   "description": "Investigation Tool (OSINT) for username availability with Ghost-mode identity rotation.",
-  "main": "bin/ghosos.js",
+  "main": "dist/bin/ghosos.js",
   "type": "module",
   "bin": {
-    "ghosos": "./bin/ghosos.js"
+    "ghosos": "./dist/bin/ghosos.js"
   },
   "scripts": {
-    "start": "node bin/ghosos.js",
+    "build": "tsc",
+    "start": "node dist/bin/ghosos.js",
+    "dev": "tsx bin/ghosos.ts",
     "test": "mocha tests/**/*.test.js",
     "ignite": "node scripts/ignite.js"
   },
@@ -32,7 +34,12 @@
     "user-agents": "^1.1.0"
   },
   "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.6.0",
     "chai": "^6.2.2",
-    "mocha": "^11.7.5"
+    "mocha": "^11.7.5",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
   }
 }

@@ -1,7 +1,16 @@
 /**
+ * Interface untuk definisi Platform sosial media.
+ */
+export interface Platform {
+  name: string;
+  url: string;
+  validationType: 'status' | 'content';
+}
+
+/**
  * Daftar platform sosial media untuk dipindai.
  */
-export const platforms = [
+export const platforms: Platform[] = [
   {
     name: 'GitHub',
     url: 'https://github.com/{}',
@@ -93,4 +102,3 @@ export const platforms = [
     validationType: 'status'
   }
 ];
-
