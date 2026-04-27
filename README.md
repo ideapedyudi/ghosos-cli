@@ -2,6 +2,9 @@
 
 **Ghosos-CLI** is a "stealth-mode" username investigation tool (OSINT). It checks username availability across various social media platforms with high speed using Node.js asynchronous processing and a stylish terminal interface.
 
+![Ghosos-CLI Preview](./src/image/preview.png)
+
+
 ## Key Features
 - **Parallel Scanning:** Fast checking using `Promise.allSettled`.
 - **Ghost-Identity:** Automatic `User-Agent` rotation to avoid bot detection.
