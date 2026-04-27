@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node bin/ghosos.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/**/*.test.js",
+    "ignite": "node scripts/ignite.js"
   },
   "keywords": [
     "osint",
@@ -28,5 +29,9 @@
     "commander": "^11.1.0",
     "ora": "^7.0.1",
     "user-agents": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5"
   }
 }
