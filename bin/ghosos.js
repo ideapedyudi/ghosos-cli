@@ -14,18 +14,18 @@ program
   .name('ghosos')
   .description('Ghost-mode Username OSINT Investigation Tool')
   .version('1.0.0')
-  .argument('<username>', 'Username yang ingin diinvestigasi')
+  .argument('<username>', 'Username to investigate')
   .action(async (username) => {
     logger.title(`GHOSOS-CLI: Investigating "${username}"`);
     
     const spinner = ora({
-      text: `Memulai pencarian siluman untuk ${chalk.magenta(username)}...`,
+      text: `Starting stealth search for ${chalk.magenta(username)}...`,
       color: 'magenta'
     }).start();
 
     try {
       const results = await scanAll(platforms, username);
-      spinner.succeed(`Pemindaian selesai untuk ${chalk.bold(username)}`);
+      spinner.succeed(`Scan completed for ${chalk.bold(username)}`);
 
       const table = new Table({
         head: [
@@ -57,10 +57,10 @@ program
       });
 
       console.log(table.toString());
-      logger.ghost('Investigasi selesai. Tetap dalam bayangan.');
+      logger.ghost('Investigation complete. Stay in the shadows.');
 
     } catch (error) {
-      spinner.fail('Terjadi kesalahan fatal dalam pemindaian.');
+      spinner.fail('A fatal error occurred during scanning.');
       logger.error(error.message);
     }
   });

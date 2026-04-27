@@ -1,7 +1,7 @@
 import UserAgent from 'user-agents';
 
 /**
- * Menghasilkan User-Agent acak untuk mode siluman.
+ * Generates a random User-Agent for stealth mode.
  * @returns {string} User-Agent string.
  */
 export const getGhostUA = () => {

@@ -20,7 +20,7 @@
     "stealth",
     "cli"
   ],
-  "author": "Ideapedyudi",
+  "author": "ideapedyudi",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.0",

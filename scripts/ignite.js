@@ -6,7 +6,7 @@ import path from 'path';
 
 /**
  * Ghosos-CLI Ignitor Script
- * Digunakan untuk inisialisasi dan setup project secara otomatis.
+ * Used for automatic project initialization and setup.
  */
 
 const ignite = async () => {
@@ -14,44 +14,44 @@ const ignite = async () => {
   
   const spinner = ora();
 
-  // 1. Cek folder node_modules
-  spinner.start('Memeriksa dependensi...');
+  // 1. Check node_modules folder
+  spinner.start('Checking dependencies...');
   if (!fs.existsSync(path.join(process.cwd(), 'node_modules'))) {
-    spinner.warn('node_modules tidak ditemukan. Menjalankan yarn install...');
+    spinner.warn('node_modules not found. Running yarn install...');
     try {
       execSync('yarn install', { stdio: 'inherit' });
-      spinner.succeed('Dependensi berhasil diinstal.');
+      spinner.succeed('Dependencies successfully installed.');
     } catch (e) {
-      spinner.fail('Gagal menginstal dependensi. Pastikan Yarn sudah terinstal.');
+      spinner.fail('Failed to install dependencies. Make sure Yarn is installed.');
       process.exit(1);
     }
   } else {
-    spinner.succeed('Dependensi sudah siap.');
+    spinner.succeed('Dependencies are ready.');
   }
 
-  // 2. Jalankan Test
-  spinner.start('Menjalankan integrasi test...');
+  // 2. Run Tests
+  spinner.start('Running integration tests...');
   try {
     execSync('yarn test', { stdio: 'pipe' });
-    spinner.succeed('Sistem inti (Engine) berfungsi dengan baik.');
+    spinner.succeed('Core system (Engine) is functioning correctly.');
   } catch (e) {
-    spinner.fail('Integrasi test gagal. Periksa koneksi internet atau engine scanner.');
+    spinner.fail('Integration tests failed. Check internet connection or scanner engine.');
     process.exit(1);
   }
 
   // 3. Link Command
-  spinner.start('Menghubungkan perintah "ghosos" secara global...');
+  spinner.start('Linking "ghosos" command globally...');
   try {
-    // Gunakan npm link agar ghosos bisa diakses langsung
+    // Use npm link so ghosos can be accessed directly
     execSync('npm link', { stdio: 'pipe' });
-    spinner.succeed('CLI berhasil di-link secara global!');
+    spinner.succeed('CLI successfully linked globally!');
   } catch (e) {
-    spinner.warn('Gagal melakukan linking global (mungkin perlu akses admin/sudo).');
-    console.log(chalk.gray('Info: Anda masih bisa menggunakan "node bin/ghosos.js <username>"'));
+    spinner.warn('Failed to perform global linking (admin/sudo access may be required).');
+    console.log(chalk.gray('Info: You can still use "node bin/ghosos.js <username>"'));
   }
 
-  console.log(chalk.green.bold('\n✨ GHOSOS-CLI SIAP DIGUNAKAN!'));
-  console.log(chalk.cyan('Ketik: "ghosos <username>" untuk mulai berburu.\n'));
+  console.log(chalk.green.bold('\n✨ GHOSOS-CLI IS READY TO USE!'));
+  console.log(chalk.cyan('Type: "ghosos <username>" to start hunting.\n'));
 };
 
 ignite();

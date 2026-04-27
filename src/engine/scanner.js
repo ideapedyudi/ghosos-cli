@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getGhostUA } from '../utils/ghost-ua.js';
 
 /**
- * Logika inti untuk mengecek ketersediaan username.
+ * Core logic to check username availability.
  */
 export const checkUsername = async (platform, username) => {
   const url = platform.url.replace('{}', username);
@@ -30,7 +30,7 @@ export const checkUsername = async (platform, username) => {
 };
 
 /**
- * Memindai semua platform secara asinkron.
+ * Scan all platforms asynchronously.
  */
 export const scanAll = async (platforms, username) => {
   const tasks = platforms.map(p => checkUsername(p, username));

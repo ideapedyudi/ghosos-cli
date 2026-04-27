@@ -1,34 +1,34 @@
 # Ghosos-CLI 👻
 
-**Ghosos-CLI** adalah alat investigasi username (OSINT) yang beroperasi secara "siluman" (Ghost-mode). Aplikasi ini mengecek ketersediaan username di berbagai platform sosial media dengan kecepatan tinggi melalui pemrosesan asinkron Node.js dan tampilan terminal yang estetik.
+**Ghosos-CLI** is a "stealth-mode" username investigation tool (OSINT). It checks username availability across various social media platforms with high speed using Node.js asynchronous processing and a stylish terminal interface.
 
-## Fitur Utama
-- **Parallel Scanning:** Pengecekan cepat menggunakan `Promise.allSettled`.
-- **Ghost-Identity:** Rotasi `User-Agent` otomatis untuk menghindari deteksi bot.
-- **Advanced Validation:** Validasi konten untuk meminimalisir false-positive.
-- **Interactive UI:** Progress bar dinamis dan tabel hasil yang rapi.
+## Key Features
+- **Parallel Scanning:** Fast checking using `Promise.allSettled`.
+- **Ghost-Identity:** Automatic `User-Agent` rotation to avoid bot detection.
+- **Advanced Validation:** Content-based validation to minimize false positives.
+- **Interactive UI:** Dynamic progress bar and clean result tables.
 
-## Instalasi
+## Installation
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/ideapedyudi/ghosos-cli.git
 
-# Masuk ke direktori
+# Enter the directory
 cd ghosos-cli
 
-# Install dependensi
+# Install dependencies
 npm install
 
-# Link command secara global (opsional)
+# Link the command globally (optional)
 npm link
 ```
 
-## Penggunaan
+## Usage
 ```bash
 ghosos <username>
 ```
 
-## Teknologi
+## Technology
 - [Node.js](https://nodejs.org/)
 - [Commander.js](https://github.com/tj/commander.js/)
 - [Axios](https://github.com/axios/axios)

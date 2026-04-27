@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
 /**
- * Logger utility untuk memformat tampilan terminal.
+ * Logger utility to format terminal output.
  */
 export const logger = {
   info: (msg) => console.log(chalk.blue('ℹ ') + msg),
